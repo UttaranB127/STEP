@@ -84,7 +84,7 @@ class Classifier(nn.Module):
 
         # prediction
         x = self.fcn(x)
-        x = x.view(x.size(0), -1)
+        x = F.softmax(x.view(x.size(0), -1), dim=1)
 
         return x, f
 
