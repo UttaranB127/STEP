@@ -36,9 +36,12 @@ def find_all_substr(a_str, sub):
 
 def get_best_epoch_and_accuracy(path_to_model_files):
     all_models = os.listdir(path_to_model_files)
-    while '_' not in all_models[-1]:
-        all_models = all_models[:-1]
-    best_model = all_models[-1]
+    acc_list = np.zeros(len(all_models))
+    for i, model in enumerate(all_models):
+        acc = str.split(model, '_')
+        if len(acc) > 1:
+            acc_list[i] = float(acc[1][3:])
+    best_model = all_models[np.argmax(acc_list)]
     all_us = list(find_all_substr(best_model, '_'))
     return int(best_model[5:all_us[0]]), float(best_model[all_us[0]+4:all_us[1]])
 
