@@ -7,7 +7,7 @@ This is the official implementation of the paper [STEP: Spatial Temporal Graph C
   year={2020}
 }``
 
-We have also relesed the Emotion-Gait dataset with this code, which is available for download [here](https://go.umd.edu/emotion-gait).
+We have also released the Emotion-Gait dataset with this code, which is available for download [here](https://go.umd.edu/emotion-gait).
 
 1. generator_cvae is the generator.
 2. classifier_stgcn_real_only is the baseline classifier using only the real 342 gaits.
