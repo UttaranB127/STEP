@@ -40,7 +40,6 @@ def load_data(_path, _ftype, coords, joints, cycles=3):
     data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size=0.1)
     return data, labels, data_train, labels_train, data_test, labels_test
 
-
 def scale(_data):
     data_scaled = _data.astype('float32')
     data_max = np.max(data_scaled)

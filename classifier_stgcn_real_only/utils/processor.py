@@ -4,7 +4,6 @@ import os
 import matplotlib as mpl
 import numpy as np
 import torch
-import torchlight
 import torch.optim as optim
 import torch.nn as nn
 from matplotlib import colors as mcolors
@@ -12,6 +11,7 @@ from matplotlib import pyplot as plt
 from matplotlib import rcParams
 from net import classifier
 from torch.nn import ModuleList, ReLU
+from torchlight import torchlight
 
 
 class GuidedBackprop():

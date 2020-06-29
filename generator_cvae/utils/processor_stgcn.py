@@ -4,7 +4,6 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-import torchlight
 import torch.optim as optim
 import torch.nn as nn
 
@@ -13,6 +12,8 @@ from net import CVAE_stgcn as CVAE
 from utils import loader_stgcn as loader
 from utils import losses
 from utils.common import *
+
+from torchlight import torchlight
 
 
 def weights_init(m):

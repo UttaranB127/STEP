@@ -1,7 +1,7 @@
 import argparse
 import os
 import numpy as np
-from classifier_stgcn_real_only.utils import loader, processor
+from utils import loader, processor
 
 
 import torch
@@ -65,14 +65,15 @@ parser.add_argument('--work-dir', type=str, default=model_path, metavar='WD',
 args = parser.parse_args()
 device = 'cuda:0'
 
-data, labels = loader.load_data(data_path, ftype, coords, joints, cycles=cycles)
+data, labels,\
+    data_train, labels_train,\
+    data_test, labels_test = loader.load_data(data_path, ftype, coords, joints, cycles=cycles)
 num_classes = np.unique(labels).shape[0]
 graph_dict = {'strategy': 'spatial'}
 emotions = ['Angry', 'Neutral', 'Happy', 'Sad']
 
 if args.train:
     test_size = 0.1
-    data, labels, data_train, labels_train, data_test, labels_test = loader.split_data(data, labels, test_size=test_size)
     data_loader_train_test = list()
     data_loader_train_test.append(torch.utils.data.DataLoader(
         dataset=loader.TrainTestLoader(data_train, labels_train, joints, coords, num_classes),

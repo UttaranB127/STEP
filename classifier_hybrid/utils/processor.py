@@ -3,10 +3,10 @@ import math
 import os
 import numpy as np
 import torch
-import torchlight
 import torch.optim as optim
 import torch.nn as nn
 from net import classifier
+from torchlight import torchlight
 
 
 def weights_init(m):

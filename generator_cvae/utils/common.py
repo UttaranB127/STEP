@@ -258,20 +258,20 @@ def get_transformation(X, Y):
     U, D, V = np.linalg.svd(M, full_matrices=True, compute_uv=True)
     V = V.T.copy()
     #print U,"\n\n",D,"\n\n",V
-    r = np.rank(M)
+    r = np.linalg.matrix_rank(M)
     d = np.linalg.det(M)
     S = np.eye(m)
     if r > (m - 1):
-        if np.det(M) < 0:
+        if np.linalg.det(M) < 0:
             S[m, m] = -1
-        elif r == m - 1:
-            if np.det(U) * np.det(V) < 0:
-                S[m, m] = -1
-        else:
-            R = np.eye(2)
-            c = 1
-            t = np.zeros(2)
-            return R, c, t
+    elif r == m - 1:
+        if np.linalg.det(U) * np.linalg.det(V) < 0:
+            S[m, m] = -1
+    else:
+        R = np.eye(2)
+        c = 1
+        t = np.zeros(2)
+        return R, c, t
 
     R = np.dot(np.dot(U, S), V.T)
     c = np.trace(np.dot(np.diag(D), S)) / sx

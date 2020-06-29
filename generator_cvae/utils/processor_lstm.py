@@ -2,13 +2,13 @@ import h5py
 import os
 import numpy as np
 import torch
-import torchlight
 import torch.optim as optim
 import torch.nn as nn
 from net import CVAE_lstm as CVAE
 from utils import loader_lstm as loader
 from utils import losses
 from utils.common import *
+from torchlight import torchlight
 
 
 def weights_init(m):
