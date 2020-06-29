@@ -25,7 +25,7 @@ parser.add_argument('--smap', type=bool, default=False, metavar='S',
 parser.add_argument('--save-features', type=bool, default=False, metavar='SF',
                     help='save penultimate layer features (default: True)')
 parser.add_argument('--batch-size', type=int, default=6, metavar='B',
-                    help='input batch size for training (default: 8)')
+                    help='input batch size for training (default: 6)')
 parser.add_argument('--num-worker', type=int, default=4, metavar='W',
                     help='input batch size for training (default: 4)')
 parser.add_argument('--start_epoch', type=int, default=0, metavar='SE',
