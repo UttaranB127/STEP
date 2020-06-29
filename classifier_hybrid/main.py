@@ -61,20 +61,17 @@ device = 'cuda:0'
 data_train, data_test, labels_train, labels_test = loader.load_data(data_path, ftype, joints, coords, cycles=cycles)
 aff_features = len(data_train[0][0])
 num_classes = np.unique(labels_train).shape[0]
-data_loader = list()
-data_loader.append(torch.utils.data.DataLoader(
-    dataset=loader.TrainTestLoader(data_train, labels_train, joints, coords),
-    batch_size=args.batch_size,
-    shuffle=True,
-    num_workers=args.num_worker * torchlight.ngpu(device),
-    drop_last=True))
-data_loader.append(torch.utils.data.DataLoader(
-    dataset=loader.TrainTestLoader(data_test, labels_test, joints, coords),
-    batch_size=args.batch_size,
-    shuffle=True,
-    num_workers=args.num_worker * torchlight.ngpu(device),
-    drop_last=True))
-data_loader = dict(train=data_loader[0], test=data_loader[1])
+data_loader = {
+    'train': torch.utils.data.DataLoader(
+        dataset=loader.TrainTestLoader(data_train, labels_train, joints, coords, num_classes),
+        batch_size=args.batch_size,
+        shuffle=True,
+        drop_last=True),
+    'test': torch.utils.data.DataLoader(
+        dataset=loader.TrainTestLoader(data_test, labels_test, joints, coords, num_classes),
+        batch_size=args.batch_size,
+        shuffle=True,
+        drop_last=True)}
 graph_dict = {'strategy': 'spatial'}
 pr = processor.Processor(args, data_loader, coords, aff_features, num_classes, graph_dict, device=device)
 pr.train()

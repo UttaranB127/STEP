@@ -75,7 +75,7 @@ graph_dict = {'strategy': 'spatial'}
 emotions = ['Angry', 'Neutral', 'Happy', 'Sad']
 
 if args.train:
-    data_loader_train_test = {
+    data_loader = {
         'train': torch.utils.data.DataLoader(
             dataset=loader.TrainTestLoader(data_train, labels_train, joints, coords, num_classes),
             batch_size=args.batch_size,
@@ -90,7 +90,7 @@ if args.train:
     print('Train set size: {:d}'.format(len(data_train)))
     print('Test set size: {:d}'.format(len(data_test)))
     print('Number of classes: {:d}'.format(num_classes))
-    pr = processor.Processor(args, data_loader_train_test, coords, num_classes, graph_dict, device=device,
+    pr = processor.Processor(args, data_loader, coords, num_classes, graph_dict, device=device,
                              verbose=False)
     pr.train()
 else:

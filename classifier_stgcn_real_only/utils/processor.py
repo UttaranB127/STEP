@@ -467,7 +467,8 @@ class Processor(object):
             each_data = torch.from_numpy(each_data).float().to(self.device)
             # get label
             with torch.no_grad():
-                output[i], _ = self.model(each_data)
+                output_torch, _ = self.model(each_data)
+                output[i] = output_torch.detach().cpu().numpy()
                 labels_pred[i] = np.argmax(output[i])
         return labels_pred, output
 

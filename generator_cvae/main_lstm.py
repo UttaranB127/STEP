@@ -73,20 +73,17 @@ if args.train:
     data_test, _, _ = loader.scale(data_test)
     num_classes = np.unique(labels_train).shape[0]
     np.savetxt(info_path+'/info.txt', np.array([tsteps, features, data_max, data_min, num_classes]), delimiter='\n')
-    data_loader = list()
-    data_loader.append(torch.utils.data.DataLoader(
-        dataset=loader.TrainTestLoader(data_train, joints, coords, labels_train, num_classes),
-        batch_size=args.batch_size,
-        shuffle=True,
-        num_workers=args.num_worker * torchlight.ngpu(device),
-        drop_last=True))
-    data_loader.append(torch.utils.data.DataLoader(
-        dataset=loader.TrainTestLoader(data_test, joints, coords, labels_test, num_classes),
-        batch_size=args.batch_size,
-        shuffle=True,
-        num_workers=args.num_worker * torchlight.ngpu(device),
-        drop_last=True))
-    data_loader = dict(train=data_loader[0], test=data_loader[1])
+    data_loader = {
+        'train': torch.utils.data.DataLoader(
+            dataset=loader.TrainTestLoader(data_train, labels_train, joints, coords, num_classes),
+            batch_size=args.batch_size,
+            shuffle=True,
+            drop_last=True),
+        'test': torch.utils.data.DataLoader(
+            dataset=loader.TrainTestLoader(data_test, labels_test, joints, coords, num_classes),
+            batch_size=args.batch_size,
+            shuffle=True,
+            drop_last=True)}
     pr = processor.Processor(args, ftype, data_loader, data_max, data_min,
                              coords, tsteps, joints, features, num_classes, device=device)
     if args.delete_previous:
