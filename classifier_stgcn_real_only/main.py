@@ -1,7 +1,7 @@
 import argparse
 import os
 import numpy as np
-from utils import loader, processor
+from classifier_stgcn_real_only.utils import loader, processor
 
 
 import torch
@@ -9,7 +9,7 @@ import torchlight
 
 
 base_path = os.path.dirname(os.path.realpath(__file__))
-data_path = os.path.join(base_path, '../data/')
+data_path = os.path.join(base_path, '../../data/')
 ftype = ''
 coords = 3
 joints = 16
