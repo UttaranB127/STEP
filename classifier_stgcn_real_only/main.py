@@ -10,7 +10,7 @@ import torchlight
 
 base_path = os.path.dirname(os.path.realpath(__file__))
 data_path = os.path.join(base_path, '../../data/')
-ftype = ''
+ftype = '4DCVAEGCN'
 coords = 3
 joints = 16
 cycles = 1
@@ -24,7 +24,7 @@ parser.add_argument('--smap', type=bool, default=False, metavar='S',
                     help='train the model (default: True)')
 parser.add_argument('--save-features', type=bool, default=False, metavar='SF',
                     help='save penultimate layer features (default: True)')
-parser.add_argument('--batch-size', type=int, default=8, metavar='B',
+parser.add_argument('--batch-size', type=int, default=6, metavar='B',
                     help='input batch size for training (default: 8)')
 parser.add_argument('--num-worker', type=int, default=4, metavar='W',
                     help='input batch size for training (default: 4)')
@@ -65,29 +65,28 @@ parser.add_argument('--work-dir', type=str, default=model_path, metavar='WD',
 args = parser.parse_args()
 device = 'cuda:0'
 
+test_size = 0.1
 data, labels,\
     data_train, labels_train,\
-    data_test, labels_test = loader.load_data(data_path, ftype, coords, joints, cycles=cycles)
+    data_test, labels_test = loader.load_data(data_path, ftype, coords, joints,
+                                              cycles=cycles, test_size=test_size)
 num_classes = np.unique(labels).shape[0]
 graph_dict = {'strategy': 'spatial'}
 emotions = ['Angry', 'Neutral', 'Happy', 'Sad']
 
 if args.train:
-    test_size = 0.1
-    data_loader_train_test = list()
-    data_loader_train_test.append(torch.utils.data.DataLoader(
-        dataset=loader.TrainTestLoader(data_train, labels_train, joints, coords, num_classes),
-        batch_size=args.batch_size,
-        shuffle=True,
-        drop_last=True))
-    data_loader_train_test.append(torch.utils.data.DataLoader(
-        dataset=loader.TrainTestLoader(data_test, labels_test, joints, coords, num_classes),
-        batch_size=args.batch_size,
-        shuffle=True,
+    data_loader_train_test = {
+        'train': torch.utils.data.DataLoader(
+            dataset=loader.TrainTestLoader(data_train, labels_train, joints, coords, num_classes),
+            batch_size=args.batch_size,
+            shuffle=True,
+            drop_last=True),
+        'test': torch.utils.data.DataLoader(
+            dataset=loader.TrainTestLoader(data_test, labels_test, joints, coords, num_classes),
+            batch_size=args.batch_size,
+            shuffle=True,
+            drop_last=True)}
 
-        drop_last=True))
-
-    data_loader_train_test = dict(train=data_loader_train_test[0], test=data_loader_train_test[1])
     print('Train set size: {:d}'.format(len(data_train)))
     print('Test set size: {:d}'.format(len(data_test)))
     print('Number of classes: {:d}'.format(num_classes))
