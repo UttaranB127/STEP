@@ -1,5 +1,5 @@
 This is the official implementation of the paper [STEP: Spatial Temporal Graph Convolutional Networks for Emotion Perception from Gaits](https://obj.umiacs.umd.edu/gamma-umd-website-imgs/pdfs/affectivecomputing/STEP.pdf). Please add the following citation in your work if you use our code:
-``@inproceedings{bhattacharya2020step,
+``@inproceedings{bhattacharya2020step,<br/>
   title={STEP: Spatial Temporal Graph Convolutional Networks for Emotion Perception from Gaits.},
   author={Bhattacharya, Uttaran and Mittal, Trisha and Chandra, Rohan and Randhavane, Tanmay and Bera, Aniket and Manocha, Dinesh},
   booktitle={AAAI},
