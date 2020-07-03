@@ -2,7 +2,6 @@
 import h5py
 import os
 import numpy as np
-import tensorflow as tf
 
 from sklearn.model_selection import train_test_split
 from utils import common
@@ -12,7 +11,7 @@ import torch
 from torchvision import datasets, transforms
 
 
-def load_data(_path, _ftype, coords, joints, cycles=3):
+def load_data(_path, _ftype, coords, joints, cycles=3, test_size=0.1):
 
     file_feature = os.path.join(_path, 'features' + _ftype + '.h5')
     ff = h5py.File(file_feature, 'r')
@@ -37,7 +36,7 @@ def load_data(_path, _ftype, coords, joints, cycles=3):
         for ci in range(cycles):
             data[si, time_steps * ci:time_steps * (ci + 1), :] = data_list_curr[0:time_steps]
     data = common.get_affective_features(np.reshape(data, (data.shape[0], data.shape[1], joints, coords)))[:, :, :48]
-    data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size=0.1)
+    data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size=test_size)
     return data, labels, data_train, labels_train, data_test, labels_test
 
 def scale(_data):
