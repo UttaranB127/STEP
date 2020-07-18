@@ -1,11 +1,14 @@
 This is the official implementation of the paper [STEP: Spatial Temporal Graph Convolutional Networks for Emotion Perception from Gaits](https://aaai.org/ojs/index.php/AAAI/article/view/5490). Please add the following citation in your work if you use our code:
 
 ``@inproceedings{bhattacharya2020step,
-  title={STEP: Spatial Temporal Graph Convolutional Networks for Emotion Perception from Gaits.},
-  author={Bhattacharya, Uttaran and Mittal, Trisha and Chandra, Rohan and Randhavane, Tanmay and Bera, Aniket and Manocha, Dinesh},
-  booktitle={AAAI},
-  pages={1342--1350},
-  year={2020}
+author = {Bhattacharya, Uttaran and Mittal, Trisha and Chandra, Rohan and Randhavane, Tanmay and Bera, Aniket and Manocha, Dinesh},
+title = {STEP: Spatial Temporal Graph Convolutional Networks for Emotion Perception from Gaits},
+year = {2020},
+publisher = {AAAI Press},
+booktitle = {Proceedings of the Thirty-Fourth AAAI Conference on Artificial Intelligence},
+pages = {1342–1350},
+numpages = {9},
+series = {AAAI’20}
 }``
 
 We have also released the Emotion-Gait dataset with this code, which is available for download here: [https://go.umd.edu/emotion-gait](https://go.umd.edu/emotion-gait).
