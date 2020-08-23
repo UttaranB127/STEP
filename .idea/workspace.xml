@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2af79747-dce0-4660-8059-a49d61051c98" name="Default Changelist" comment="" />
+    <list default="true" id="2af79747-dce0-4660-8059-a49d61051c98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +12,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="5332254a-e680-41ea-91e8-4ef3641da335" />
   <component name="ProjectId" id="1e09uGGg74pNqzHuVedyRHMtF1K" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -19,6 +22,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/compute_aff_features/main.py" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -27,7 +31,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main_aff">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="STEP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -54,9 +58,6 @@
       <module name="STEP" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classifier_stgcn_real_only" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -72,12 +73,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main_aff" type="PythonConfigurationType" factoryName="Python">
+      <module name="STEP" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\utta0\miniconda3\envs\emo-gait-env\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/compute_aff_features" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compute_aff_features/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main_aff" />
+      <item itemvalue="Python.main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -90,55 +115,71 @@
       <updated>1593447863347</updated>
       <workItem from="1593447867347" duration="4390000" />
       <workItem from="1593464872919" duration="340000" />
+      <workItem from="1598207285645" duration="5768000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="579" y="187" key="FileChooserDialogImpl" timestamp="1593448582381">
+    <state x="254" y="87" width="1089" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598210497679">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state x="254" y="87" width="1089" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598210497679" />
+    <state x="579" y="187" key="FileChooserDialogImpl" timestamp="1598210491053">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="579" y="187" key="FileChooserDialogImpl/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598210491053" />
     <state x="579" y="187" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1593448582381" />
-    <state width="1429" height="277" key="GridCell.Tab.0.bottom" timestamp="1593464558086">
+    <state width="1429" height="277" key="GridCell.Tab.0.bottom" timestamp="1598212447643">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state width="1429" height="277" key="GridCell.Tab.0.bottom/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598212447643" />
     <state width="1429" height="277" key="GridCell.Tab.0.bottom/62.0.1474.864@62.0.1474.864" timestamp="1593464558086" />
-    <state width="1429" height="277" key="GridCell.Tab.0.center" timestamp="1593464558086">
+    <state width="1429" height="277" key="GridCell.Tab.0.center" timestamp="1598212447642">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state width="1429" height="277" key="GridCell.Tab.0.center/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598212447642" />
     <state width="1429" height="277" key="GridCell.Tab.0.center/62.0.1474.864@62.0.1474.864" timestamp="1593464558086" />
-    <state width="1429" height="277" key="GridCell.Tab.0.left" timestamp="1593464558085">
+    <state width="1429" height="277" key="GridCell.Tab.0.left" timestamp="1598212447642">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state width="1429" height="277" key="GridCell.Tab.0.left/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598212447642" />
     <state width="1429" height="277" key="GridCell.Tab.0.left/62.0.1474.864@62.0.1474.864" timestamp="1593464558085" />
-    <state width="1429" height="277" key="GridCell.Tab.0.right" timestamp="1593464558086">
+    <state width="1429" height="277" key="GridCell.Tab.0.right" timestamp="1598212447643">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state width="1429" height="277" key="GridCell.Tab.0.right/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598212447643" />
     <state width="1429" height="277" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1593464558086" />
-    <state width="1429" height="277" key="GridCell.Tab.1.bottom" timestamp="1593464558087">
+    <state width="1429" height="277" key="GridCell.Tab.1.bottom" timestamp="1598212447643">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state width="1429" height="277" key="GridCell.Tab.1.bottom/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598212447643" />
     <state width="1429" height="277" key="GridCell.Tab.1.bottom/62.0.1474.864@62.0.1474.864" timestamp="1593464558087" />
-    <state width="1429" height="277" key="GridCell.Tab.1.center" timestamp="1593464558087">
+    <state width="1429" height="277" key="GridCell.Tab.1.center" timestamp="1598212447643">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state width="1429" height="277" key="GridCell.Tab.1.center/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598212447643" />
     <state width="1429" height="277" key="GridCell.Tab.1.center/62.0.1474.864@62.0.1474.864" timestamp="1593464558086" />
-    <state width="1429" height="277" key="GridCell.Tab.1.left" timestamp="1593464558086">
+    <state width="1429" height="277" key="GridCell.Tab.1.left" timestamp="1598212447643">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state width="1429" height="277" key="GridCell.Tab.1.left/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598212447643" />
     <state width="1429" height="277" key="GridCell.Tab.1.left/62.0.1474.864@62.0.1474.864" timestamp="1593464558086" />
-    <state width="1429" height="277" key="GridCell.Tab.1.right" timestamp="1593464558087">
+    <state width="1429" height="277" key="GridCell.Tab.1.right" timestamp="1598212447643">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state width="1429" height="277" key="GridCell.Tab.1.right/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598212447643" />
     <state width="1429" height="277" key="GridCell.Tab.1.right/62.0.1474.864@62.0.1474.864" timestamp="1593464558087" />
-    <state x="301" y="77" key="SettingsEditor" timestamp="1593448954987">
+    <state x="301" y="77" key="SettingsEditor" timestamp="1598207314887">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state x="301" y="77" key="SettingsEditor/62.0.1474.864/1920.0.1920.1040@62.0.1474.864" timestamp="1598207314887" />
     <state x="301" y="77" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1593448954987" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/STEP$main.coverage" NAME="main Coverage Results" MODIFIED="1593451423089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classifier_stgcn_real_only" />
+    <SUITE FILE_PATH="coverage/STEP$main_aff.coverage" NAME="main_aff Coverage Results" MODIFIED="1598212404488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/compute_aff_features" />
+    <SUITE FILE_PATH="coverage/STEP$main.coverage" NAME="main Coverage Results" MODIFIED="1598210115623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classifier_stgcn_real_only" />
   </component>
 </project>
