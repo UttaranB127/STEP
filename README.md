@@ -1,4 +1,4 @@
-This is the official implementation of the paper [STEP: Spatial Temporal Graph Convolutional Networks for Emotion Perception from Gaits](https://aaai.org/ojs/index.php/AAAI/article/view/5490). Please add the following citation in your work if you use our code:
+This is the official implementation of the paper [STEP: Spatial Temporal Graph Convolutional Networks for Emotion Perception from Gaits](https://aaai.org/ojs/index.php/AAAI/article/view/5490). Please add the following citation if you find our work uesful:
 
 ```
 @inproceedings{bhattacharya2020step,
