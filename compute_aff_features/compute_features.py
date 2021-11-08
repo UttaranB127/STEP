@@ -1,11 +1,11 @@
 import numpy as np
 
-from utils import angle_between
-from utils import distance_between
-from utils import area_triangle
-# from compute_aff_features.utils import angle_between
-# from compute_aff_features.utils import distance_between
-# from compute_aff_features.utils import area_triangle
+# from utils import angle_between
+# from utils import distance_between
+# from utils import area_triangle
+from compute_aff_features.utils import angle_between
+from compute_aff_features.utils import distance_between
+from compute_aff_features.utils import area_triangle
 
 
 # Volume of the bounding box

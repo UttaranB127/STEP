@@ -1,12 +1,12 @@
 import h5py
 import os
 
-from compute_features import compute_features
-from normalize_features import normalize_features
-from cross_validate import cross_validate
-# from compute_aff_features.compute_features import compute_features
-# from compute_aff_features.normalize_features import normalize_features
-# from compute_aff_features.cross_validate import cross_validate
+# from compute_features import compute_features
+# from normalize_features import normalize_features
+# from cross_validate import cross_validate
+from compute_aff_features.compute_features import compute_features
+from compute_aff_features.normalize_features import normalize_features
+from compute_aff_features.cross_validate import cross_validate
 
 
 base_path = '/mnt/q/Gamma/Gait'
