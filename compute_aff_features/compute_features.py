@@ -1,7 +1,11 @@
 import numpy as np
-from compute_aff_features.utils import angle_between
-from compute_aff_features.utils import distance_between
-from compute_aff_features.utils import area_triangle
+
+from utils import angle_between
+from utils import distance_between
+from utils import area_triangle
+# from compute_aff_features.utils import angle_between
+# from compute_aff_features.utils import distance_between
+# from compute_aff_features.utils import area_triangle
 
 
 # Volume of the bounding box
@@ -295,11 +299,11 @@ def calculate_acceleration(frames, time_step, jid):
     array = []
     old_position = np.asarray([frames[0][3 * jid], frames[0][3 * jid + 1], frames[0][3 * jid + 2]])
     new_position = np.asarray([frames[1][3 * jid], frames[1][3 * jid + 1], frames[1][3 * jid + 2]])
-    old_velocity = (old_position - old_position) / time_step
+    old_velocity = (new_position - old_position) / time_step
     old_position = new_position.copy()
     for i in range(2, len(frames)):
         new_position = np.asarray([frames[i][3 * jid], frames[i][3 * jid + 1], frames[i][3 * jid + 2]])
-        new_velocity = (old_position - old_position) / time_step
+        new_velocity = (new_position - old_position) / time_step
         acceleration = (new_velocity - old_velocity) / time_step
         acceleration_mag = np.linalg.norm(acceleration) / 10
         old_position = new_position.copy()
@@ -383,6 +387,42 @@ def compute_feature_25(frames, time_step):
 # Movement jerk of left foot
 def compute_feature_26(frames, time_step):
     return calculate_movement_jerk(frames, time_step, 15)
+
+
+# Foot strike points
+def calculate_foot_strike_points(frames, jid):
+    strike_points = []
+    for i in range(1, len(frames) - 1):
+        foot_position_prev = frames[i - 1][3 * jid + 1]
+        foot_position_curr = frames[i][3 * jid + 1]
+        foot_position_next = frames[i + 1][3 * jid + 1]
+        if foot_position_prev == foot_position_curr == foot_position_next:
+            if not(i - 1 in strike_points or i in strike_points):
+                strike_points.append(i)
+        elif foot_position_prev >= foot_position_curr <= foot_position_next:  # lowest point of foot in trajectory
+            strike_points.append(i)
+    return np.asarray(strike_points)
+
+
+def calculate_stride_length(frames, time_step):
+    strike_points_right = calculate_foot_strike_points(frames, 12)
+    strike_points_left = calculate_foot_strike_points(frames, 15)
+    if len(strike_points_right) < 2 and len(strike_points_left) < 2:
+        return len(frames), len(frames) * time_step
+    if len(strike_points_right) < 2:
+        mean_stride_length = np.mean(strike_points_left[1:] - strike_points_left[:-1] + 1)
+        return mean_stride_length, mean_stride_length * time_step
+    if len(strike_points_left) < 2:
+        mean_stride_length = np.mean(strike_points_right[1:] - strike_points_right[:-1] + 1)
+        return mean_stride_length, mean_stride_length * time_step
+    mean_stride_length = np.mean(np.concatenate((strike_points_right[1:] - strike_points_right[:-1],
+                                                 strike_points_left[1:] - strike_points_left[:-1]), axis=0))
+    return mean_stride_length, mean_stride_length * time_step
+
+
+# Stride length and gait cycle time
+def compute_feature_27_28(frames, time_step):
+    return calculate_stride_length(frames, time_step)
 
 
 def compute_features(frames, time_step):

@@ -1,12 +1,19 @@
 import h5py
-from compute_aff_features.compute_features import compute_features
-from compute_aff_features.normalize_features import normalize_features
-from compute_aff_features.cross_validate import cross_validate
+import os
 
+from compute_features import compute_features
+from normalize_features import normalize_features
+from cross_validate import cross_validate
+# from compute_aff_features.compute_features import compute_features
+# from compute_aff_features.normalize_features import normalize_features
+# from compute_aff_features.cross_validate import cross_validate
+
+
+base_path = '/mnt/q/Gamma/Gait'
 
 # Get affective features
 f_type = ''
-positions = h5py.File('../../data/features{}.h5'.format(f_type), 'r')
+positions = h5py.File(os.path.join(base_path, 'data', 'features{}.h5'.format(f_type)), 'r')
 keys = positions.keys()
 time_step = 1.0 / 30.0
 
@@ -31,7 +38,7 @@ with h5py.File('../../data/affectiveFeatures{}.h5'.format(f_type), 'w') as aff:
 print('done.')
 
 # Get labels
-labels = h5py.File('../../data/labels{}.h5'.format(f_type), 'r')
+labels = h5py.File(os.path.join(base_path, 'data', 'labels{}.h5'.format(f_type)), 'r')
 
 # Cross validate
 cross_validate(normalized_features, labels)
