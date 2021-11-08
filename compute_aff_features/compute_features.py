@@ -37,7 +37,7 @@ def compute_feature0_per_frame(frame):
     return volume
 
 
-def compute_feature0(frames):
+def compute_feature_0(frames):
     array = []
     for frame in frames:
         array.append(compute_feature0_per_frame(frame))
@@ -425,10 +425,10 @@ def compute_feature_27_28(frames, time_step):
     return calculate_stride_length(frames, time_step)
 
 
-def compute_features(frames, time_step):
+def compute_features(frames, time_step, add_stride_features=False):
     features = [
         # Volume
-        compute_feature0(frames),
+        compute_feature_0(frames),
         # Angles
         compute_feature_1(frames),
         compute_feature_2(frames),
@@ -462,4 +462,7 @@ def compute_features(frames, time_step):
         compute_feature_25(frames, time_step),
         compute_feature_26(frames, time_step)
     ]
+    if add_stride_features:
+        stride_features = compute_feature_27_28(frames, time_step)
+        features.extend(stride_features)
     return features
